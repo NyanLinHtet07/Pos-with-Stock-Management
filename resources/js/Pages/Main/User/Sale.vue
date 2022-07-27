@@ -460,12 +460,8 @@ export default {
          this.form 
         );
    
-    
-    
     this.clearCart();
     this.resetForm();
-  
-
     this.print();
 
     

@@ -1,11 +1,11 @@
 <template>
     <div >
-        <div class="min-h-screen bg-gray-100 flex">
+        <div class="min-h-screen bg-blue-100 flex">
             <nav class="bg-white border-b border-gray-100 w-1/6">
               
-              <div class=" flex-shrink-0 flex p-3 mx-auto">
+              <div class="flex justify-center p-3 mx-auto my-4">
                   <Link :href="route('dashboard')">
-                        <breeze-application-logo class="block h-9 w-auto" />
+                        <breeze-application-logo class="" />
                     </Link>
               </div>
 
@@ -131,7 +131,7 @@
             </header>
 
             <!-- Page Content -->
-            <main class=" p-3 w-5/6 bg-gradient-to-br from-gray-400">
+            <main class=" p-3 w-5/6">
 
                 <!-- <div v-if="$page.props.flash.message" class="alert">
                     {{ $page.props.flash.message }}
