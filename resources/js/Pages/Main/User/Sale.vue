@@ -1,13 +1,13 @@
 <template>
-    <Head title="Sales" />
+
     <BreezeMainDashLayout>
 
-        <div class="w-full rounded bg-white border-red-200 shadow-md p-3 mb-10 mt-5">
-            <form @submit.prevent="find">
-                 <input type="text" class=" rounded flex w-full" placeholder=" ပစ္စည်းရှာရန် ..." v-model="q">
+        <div class=" my-6">
+            <form @submit.prevent="find" class=" flex">
+                 <input type="text" class=" rounded-full mx-3 w-full px-3 shadow-lg" placeholder=" ပစ္စည်းရှာရန် ..." v-model="q">
 
-                <div class="mt-4 text-center">
-                    <button class="py-2 px-3 bg-gray-400 shadow-sm rounded text-white hover:bg-gray-800 transition-transform ease-in "> ပစ္စည်းရှာရန် </button>
+                <div class="text-center">
+                    <button class="py-2 px-3 bg-green-500 shadow-sm rounded-full text-white hover:bg-gray-800 transition-transform ease-in "> ပစ္စည်းရှာရန် </button>
                 </div>
 
             </form>
@@ -17,22 +17,22 @@
 
 
 
-     <div class="grid grid-cols-6 gap-2">
+     <div class="grid grid-cols-6 gap-3 mx-auto ">
 
 
-    <div class="col-span-4 sm:col-span-6 md:col-span-6 lg:col-span-3 xl:col-span-3">
-         <table class="table-auto mt-10 text-center px-4 w-full">
+    <div class="col-span-4  md:col-span-6 lg:col-span-3 xl:col-span-3">
+         <table class="table-auto mt-10 text-center px-4 w-full rounded-lg drop-shadow-md">
             <thead class="px-4 mb-10 bg-gray-700 text-gray-100 ">
                 <tr class=" justify-around text-sm p-2">
                    
                   
-                    <td class=""> အမည်  </td>
-                    <td class=""> အမည်ခွဲ </td>
+                    <td class=" py-2"> အမည်  </td>
+                    <td class=" my-2"> အမည်ခွဲ </td>
                    
-                    <td class=""> ဈေးနှုန်း </td>
-                    <td class=""> Menu </td>
-                    <td class=""> လက်ကျန် </td>
-                    <td class=""> ရောင်းရန် </td>
+                    <td class=" my-2"> ဈေးနှုန်း </td>
+                    <td class=" my-2"> Menu </td>
+                    <td class="my-2"> လက်ကျန် </td>
+                    <td class=" my-2"> ရောင်းရန် </td>
                    
 
                    
@@ -50,16 +50,16 @@
                     <td class="text-sm font-bold">{{item.price}}</td> 
 
                     <!-- Need to fixed -->
-                    <td> <span class=" text-xs p-1 font-light bg-green-900 rounded shadow text-white"> {{item.menu.name}} </span></td>
+                    <td> <span class=" text-xs px-2 py-1 font-medium bg-indigo-600 rounded-full shadow-sm text-white "> {{item.menu.name}} </span></td>
                   
                    <td class="text-sm font-bold"> {{ item.qty}}</td> 
                         <td v-if="item.qty <= 0"> 
-                           <p class=" p-3 rounded-sm bg-indigo-100 text-red-900 text-sm" > Out of Stock </p>
+                           <p class=" px-2 py-1 rounded-full bg-indigo-100 text-red-900 text-sm" > Out of Stock </p>
                         </td>
 
                         <td v-if="!(item.qty <= 0)">
 
-                            <button class="p-3 bg-gray-500 rounded text-sm text-white font-bold shadow-sm m-2" @click="addToCart(item)"> ရောင်းရန် </button>
+                            <button class="px-2 py-1 bg-green-700 rounded-full text-sm text-white font-semibold shadow-sm m-2" @click="addToCart(item)"> ရောင်းရန် </button>
                             <!-- <button class="p-3 bg-blue-400" @click="removeItem(item)"> Remove </button> -->
                         </td>
                     </tr>
@@ -79,20 +79,20 @@
   
 
     
-    <div class="col-span-6 sm:col-span-6 md:col-span-6 lg:col-span-3 xl:col-span-3">
+    <div class="col-span-6 md:col-span-6 lg:col-span-3 xl:col-span-3">
             <div class="text-right">
-                <button class="btn bg-indigo-400 px-2 py-1 mb-3 rounded text-white text-sm font-semibold"> {{count}} </button>
+                <button class="btn bg-indigo-400 px-2 py-1 mb-3 rounded-xl text-white text-sm font-semibold"> {{count}} </button>
                
             </div>
 
-            <table class=" table-fixed border-1 text-center text-sm w-5/6">
+            <table class=" table-fixed border-1 text-center text-sm w-full">
             <thead class=" bg-indigo-800 text-white">
                 <tr class=""> 
                    
-                    <td class=""> အမည်  </td>
-                    <td class=""> အရေအတွက် </td>
-                    <td class=""> ဈေးနှုန်း </td>
-                    <td class=""> ကျသင့်ငွေ </td>
+                    <td class="py-2"> အမည်  </td>
+                    <td class="py-2"> အရေအတွက် </td>
+                    <td class="py-2"> ဈေးနှုန်း </td>
+                    <td class="py-2"> ကျသင့်ငွေ </td>
                     
                 </tr>
             </thead>
@@ -100,10 +100,10 @@
                <tr v-for="cartItem in cartItems" :key="cartItem.id" class=" border-b-2">
                 <td > {{ cartItem.name}} <br> <small class="text-sm text-gray-600">{{ cartItem.code}} </small> </td>
                 <td>
-                    <button class=" p-2 rounded bg-red-900 text-white shadow-sm border-none" @click="removeCartItem(cartItem)"> - </button> 
+                    <button class=" p-2 bg-red-900 text-white rounded-xl shadow-sm border-none mx-1" @click="removeCartItem(cartItem)"> - </button> 
                         <span> {{ cartItem.quantity}} </span>
                    
-                     <button class=" p-2 rounded bg-gray-900 text-white shadow-sm border-none" @click="addCartItem(cartItem)"> + </button> 
+                     <button class=" p-2 bg-green-700 text-white rounded-xl shadow-sm border-none mx-1" @click="addCartItem(cartItem)"> + </button> 
                 </td>
                 <td> {{ cartItem.price}}</td>
                 <td> {{ cartItem.price * cartItem.quantity}}</td>
@@ -116,10 +116,10 @@
                 </tr>
                 <tr>
                   <td colspan="2"> 
-                     <button class="btn bg-red-800 p-2 mx-1 rounded text-white" @click="clearCart(cartItems)"> ပယ်ဖျက် </button>    
+                     <button class="btn bg-red-800 p-2 mx-1 rounded-full text-white" @click="clearCart(cartItems)"> ပယ်ဖျက် </button>    
                   </td>
                   <td colspan="2">
-                       <button class="p-2 m-1 text-gray-50 font-bold rounded bg-gray-800" @click ="processPayment()"> ရောင်းမည် </button>
+                       <button class="p-2 m-1 text-gray-50 font-bold rounded-full bg-green-800" @click ="processPayment()"> ရောင်းမည် </button>
                   </td>
                </tr>
             </tfoot>
@@ -133,8 +133,8 @@
 
         
 
-        <div v-if=" ! debitForm" class="text-center mb-2">
-            <button class="px-3 py-2 rounded bg-green-700 text-gray-100" @click="openDebitForm()"> ကြွေကျန်စာရင်းမှတ်ရန် </button>
+        <div v-if=" ! debitForm" class="text-right mb-2 mt-4">
+            <button class="px-3 py-2 rounded-full bg-gray-700 text-gray-100" @click="openDebitForm()"> ကြွေကျန်စာရင်းမှတ်ရန် </button>
         </div>
 
         <div class="rounded bg-white text-base" v-if="debitForm" >
@@ -301,7 +301,6 @@
 <script>
 
 import BreezeMainDashLayout from '@/Layouts/MainDash.vue'
-import {Head} from '@inertiajs/inertia-vue3';
 import { Link } from '@inertiajs/inertia-vue3';
 import moment from 'moment';
 import print from 'print-js';
@@ -316,7 +315,6 @@ import Pagination from '@/Components/Pagination.vue';
 export default {
     components: {
         BreezeMainDashLayout,
-        Head,
         Link,
         Pagination,
     },

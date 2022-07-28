@@ -1,5 +1,5 @@
 <template>
-    <Head title="Dashboard" />
+    
 
     <BreezeMainDashLayout>
 
@@ -51,9 +51,12 @@
                     <p class="text-sm text-red-800  font-semibold mb-3">အသုံးစရိတ် -  {{ monthlyExpense}}  ကျပ်</p>
                     <p class="text-sm text-indigo-800 font-semibold mb-3">စာရင်းချုပ် -  {{ monthlyReport}}  ကျပ်</p>
                  </div>
-            <Link :href="route('report')" class="px-3 py-2 my-2 rounded-full shadow-md bg-blue-200 justify-end bg-opacity-60 backdrop-filter backdrop-blur-md hover:shadow-lg">
+            <div class=" text-right">
+                 <Link :href="route('report')" class="px-2 py-1 text-sm font-semibold my-2 rounded-full shadow-md bg-blue-200 justify-end bg-opacity-60 backdrop-filter backdrop-blur-md hover:shadow-lg">
                 အသေးစိတ်ကြည့်ရှုရန်
-           </Link>
+             </Link>
+            </div>
+           
            </div>
            
 
@@ -105,13 +108,13 @@
 
 <script>
 import BreezeMainDashLayout from '@/Layouts/MainDash.vue'
-import { Head } from '@inertiajs/inertia-vue3';
+
 import { Link } from '@inertiajs/inertia-vue3'
 
 export default {
     components: {
         BreezeMainDashLayout,
-        Head,
+      
         Link
     },
 
