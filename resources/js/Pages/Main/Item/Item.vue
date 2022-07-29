@@ -1,22 +1,20 @@
 <template>
-    <Head title="Items" />
-   
-
+ 
     <BreezeMainDashLayout>
         <div>
-                <div>
-                    <Link :href="route('menu.index')" class=" bg-blue-300 px-3 py-2 rounded shadow-sm hover:bg-blue-500"> နောက်သို့</Link>
+                <div class=" mt-5">
+                    <Link :href="route('menu.index')" class=" bg-blue-300 px-3 py-2 rounded-full shadow-sm hover:bg-blue-500"> နောက်သို့</Link>
                    
                 </div>
 
-                   <h1 class="text-center text-gray-900 font-bold text-lg "> {{ menu.name}}</h1>
+                   <h1 class="text-center text-gray-900 font-bold text-2xl "> {{ menu.name}}</h1>
 
 
                 <div class=" relative">
-                     <div class=" text-right rounded p-2 mt-5">
+                     <div class=" text-right p-2 mt-5">
                     <form @submit.prevent="find"> 
-                        <input type="search" placeholder="search...." class=" text-gray-600 text-base rounded border-red-200 shadow-sm" v-model="q">
-                        <button class="px-3 py-2 bg-blue-500 hover:bg-blue-300 shadow-sm rounded mx-2"> Click Me</button>
+                        <input type="search" placeholder="search...." class=" text-gray-600 text-base rounded-full border-red-200 shadow-sm" v-model="q">
+                        <button class="px-3 py-2 bg-gray-700 hover:bg-gray-400 text-white shadow-sm rounded-full mx-2"> Click Me</button>
                     </form>
                     
                     </div>
@@ -26,7 +24,7 @@
 
                     <div v-if= '!(isOpenForm)' class="">
 
-                    <button @click="openForm()" class="px-3 py-2 bg-gray-800 hover:bg-gray-500 rounded shadow text-white"> ပစ္စည်းထည့်ရန် </button>
+                    <button @click="openForm()" class="px-3 py-2 bg-blue-800 hover:bg-blue-500 rounded-full shadow-lg text-white"> ပစ္စည်းထည့်ရန် </button>
 
                     </div>
 
@@ -46,46 +44,46 @@
         
                 <div class=" col-start-2 col-span-4 bg-purple-200 bg-transparent mt-5 rounded shadow-sm" v-if="isOpenForm">
 
-                <span class =" mx-5 my-4">
-                     <button @click="hideForm()" class=""> 
+                <div class =" mx-5 p-3">
+                     <button @click="hideForm()" class=" p-1 rounded-full bg-red-700 text-white"> 
                          <i class="fa fa-times" aria-hidden="true" ></i>
                      </button>
-                </span>
+                </div>
                     
                      <form @submit.prevent = "submit()" class=" text-center">
                  
                             <div class=" py-2 ">
-                                  <input type="file" @input="form.photo= $event.target.files [0]" class="rounded p-2">
+                                  <input type="file" @input="form.photo= $event.target.files [0]" class="rounded-lg p-2">
                             </div>
 
-                            <div class="w-full py-2 ">
-                                 <input type="text" class="rounded border-none text-black text-lg" placeholder="အမည်" v-model="form.name">
+                            <div class="py-2 mx-2 ">
+                                 <input type="text" class="rounded-lg w-full border-none text-black px-2" placeholder="အမည်" v-model="form.name">
                             </div>
 
-                            <div class=" py-2 ">
-                                <input type="text" class="rounded border-none text-black text-lg" placeholder="အမည်ခွဲ" v-model="form.code">
+                            <div class=" py-2 mx-2">
+                                <input type="text" class="rounded-lg w-full border-none text-black px-2" placeholder="အမည်ခွဲ" v-model="form.code">
                             </div>
 
-                            <div class=" py-2 ">
-                                <input type="text" class="rounded border-none text-black text-lg" placeholder="မူရင်းဈေး " v-model="form.original_price">
+                            <div class=" py-2 mx-2 ">
+                                <input type="text" class="rounded-lg w-full border-none text-black px-2" placeholder="မူရင်းဈေး " v-model="form.original_price">
                             </div>
 
-                            <div class=" py-2 ">
-                                <input type="text" class="rounded border-none text-black text-lg" placeholder="ဈေးနှုန်း" v-model="form.price">
+                            <div class=" py-2 mx-2 ">
+                                <input type="text" class="rounded-lg w-full border-none text-black px-2" placeholder="ဈေးနှုန်း" v-model="form.price">
                             </div>
 
                               
 
-                            <div class=" py-2">
-                                <input type="text" class="rounded border-none text-black text-lg" placeholder="အရေအတွက် " v-model="form.qty">
+                            <div class=" py-2 mx-2">
+                                <input type="text" class="rounded-lg w-full border-none text-black px-2" placeholder="အရေအတွက် " v-model="form.qty">
                             </div>
 
-                            <div class=" py-2">
-                                <textarea class="rounded border-none text-black text-lg" cols="18" rows="2" placeholder="မှတ်စု" v-model="form.note"></textarea>
+                            <div class=" py-2 mx-2">
+                                <textarea class="rounded-lg border-none text-black px-2 w-full" cols="18" rows="2" placeholder="မှတ်စု" v-model="form.note"></textarea>
                             </div>
 
-                            <div class="text-right py-3 mt-3">
-                                  <button type="submit" class="px-3 py-2 rounded bg-gray-500 hover:bg-gray-700 text-center">  ပစ္စည်းတင်မည် </button>
+                            <div class="text-right py-3 mt-3 mr-4 mb-2">
+                                  <button type="submit" class="px-3 py-2 rounded-full bg-green-500 hover:bg-green-700 text-center">  ပစ္စည်းတင်မည် </button>
                             </div>
                            
                          
@@ -105,16 +103,16 @@
                 <tr class=" justify-around ...">
                    
                     <!-- <td class="w-1/4 ..."> Photo </td> -->
-                    <td class=""> အမည် </td>
-                    <td class=""> အမည်ခွဲ </td>
+                    <td class="py-2"> အမည် </td>
+                    <td class="py-2"> အမည်ခွဲ </td>
                     <!-- <td class="w-1/6 ..."> Note </td> -->
                   
-                     <td class="">မူရင်းဈေး </td>
-                       <td class=""> ရောင်းဈေး </td>
-                      <td class=""> အရေအတွက် </td>
+                     <td class="py-2">မူရင်းဈေး </td>
+                       <td class="py-2"> ရောင်းဈေး </td>
+                      <td class="py-2"> အရေအတွက် </td>
                     <!-- <td class="w-1/6 ..."> Menu </td> -->
-                    <td class=""> ပြင်ဆင်</td>
-                    <td class=""> ပယ်ဖျက်</td>
+                    <td class="py-2"> ပြင်ဆင်</td>
+                    <td class="py-2"> ပယ်ဖျက်</td>
 
                    
 
@@ -126,18 +124,18 @@
                     <!-- <td v-if="item.photo === null"> <img v-bind:src= '"/photo/attachment.jpg"' alt="" class=" w-32 rounded shadow-sm px-2 text-center"> </td>
                     <td v-else><img v-bind:src= '"/upload/items/photo/" + item.photo'  alt= item.photo class="w-32 rounded shadow-sm px-2 text-center"></td>  -->
                   
-                    <td>{{item.name}}</td>
-                    <td>{{item.code}}</td>
+                    <td class="py-1">{{item.name}}</td>
+                    <td class="py-1">{{item.code}}</td>
                     <!-- <td>{{item.note}}</td> -->
                     
-                    <td> {{item.original_price}}</td>
-                    <td>{{item.price}}</td> 
-                    <td> {{ item.qty}}</td>
+                    <td class="py-1"> {{item.original_price}}</td>
+                    <td class="py-1">{{item.price}}</td> 
+                    <td class="py-1"> {{ item.qty}}</td>
                     <!-- <td> <span class=" text-sm px-1 py-1 bg-green-500 rounded-lg text-white"> {{item.menu.name}} </span></td> -->
-                    <td> <button @click=" editModel(item)" class=" px-3 py-2 mx-1 rounded text-center bg-green-600 hover:bg-green-900 text-white"> 
+                    <td class="py-1"> <button @click=" editModel(item)" class=" px-3 py-2 mx-1 rounded-full text-center bg-green-600 hover:bg-green-900 text-white"> 
                           <i class="far fa-edit"></i> </button> 
                     </td>
-                    <td> <button @click="removed(item.id)" class=" px-3 py-2 mx-1 rounded text-center bg-red-600 hover:bg-red-900 text-white">
+                    <td class="py-1"> <button @click="removed(item.id)" class=" px-3 py-2 mx-1 rounded-full text-center bg-red-600 hover:bg-red-900 text-white">
                          <i class="far fa-trash-alt"></i>
                          </button>
                     </td>

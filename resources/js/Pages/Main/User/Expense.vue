@@ -10,7 +10,7 @@
             </div> -->
 
         <div>
-            <button class="p-3 m-2 bg-blue-500 rounded-sm shadow-sm text-white" @click="OpenModal()"> အသုံးပြုငွေထည့်ရန်</button>
+            <button class="px-3 py-2 m-2 bg-blue-500 rounded-full shadow-sm text-white text-sm" @click="OpenModal()"> အသုံးပြုငွေထည့်ရန်</button>
         </div>
         
     
@@ -20,7 +20,7 @@
            
            <div class="rounded px-3 py-4 shadow-lg bg-white">
                 <div class=" text-right">
-                <button class="p-2 mx-3 my-2 rounded text-white bg-red-700 text-sm" @click="deleteExp(userExpense.id)"> <i class="far fa-trash-alt"></i>  </button>
+                <button class="px-2 py-1 mx-3 my-2 rounded-full text-white bg-red-700 text-sm" @click="deleteExp(userExpense.id)"> <i class="far fa-trash-alt"></i>  </button>
             </div>
                <div>
                    <p class=""> {{moment(userExpense.created_at).locale("my").format('L')}}</p>
@@ -76,10 +76,10 @@
                                                             <h3 class="text-center m-2"> အသုံးစာရိတ် </h3>
                           <form  @submit.prevent='expense()' class="">
                           <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4  grid grid-cols-4 gap-2">
-                               <input type="text" class="rounded w-full border-red-300 m-3 p-3 col-span-2" placeholder=" အကြောင်းအရာ" v-model="form.name">
-                                <input type="text" class="rounded w-full border-red-300 m-3 p-3 col-span-2" placeholder="အသုံးပြုငွေ" v-model="form.exp">
-                                 <div class="text-center">
-                                      <button class="btn p-2 mx-2 my-3 rounded-sm shadow-md bg-gray-200" type="submit"> ထည့်သွင်း</button>
+                               <input type="text" class="rounded-lg w-full border-red-300 m-3 p-3 col-span-2" placeholder=" အကြောင်းအရာ" v-model="form.name">
+                                <input type="text" class="rounded-lg w-full border-red-300 m-3 p-3 col-span-2" placeholder="အသုံးပြုငွေ" v-model="form.exp">
+                                 <div class=" mx-auto">
+                                      <button class="btn px-2 py-1 mx-2 my-3 rounded-full shadow-md bg-gray-400" type="submit"> ထည့်သွင်း</button>
                                  </div>
                                 
                           </div>
@@ -90,22 +90,22 @@
 
                                    <table class="table-auto text-center mx-auto w-full">
                                     <thead class="bg-blue-500">
-                                        <tr class=" font-bold">
-                                            <td> အကြောင်းအရာ </td>
-                                            <td> အသုံးပြုငွေ</td> 
-                                            <td> ပယ်ဖျက် </td>
+                                        <tr class=" font-semibold">
+                                            <td class="py-2"> အကြောင်းအရာ </td>
+                                            <td class="py-2"> အသုံးပြုငွေ</td> 
+                                            <td class="py-2"> ပယ်ဖျက် </td>
                                         </tr>
                                     </thead>
                                     <tbody class=" border-b-2 mb-3 border-black border-dotted">
                                         <tr v-for="(expense , index) in expenses" :key="expense.id" class="text-base text-gray-800 text-semibold">
                                             <td> {{ expense.name}}</td>
                                             <td> {{ expense.exp}}</td>
-                                            <td>  <button class="btn p-2 mx-3 my-2 bg-red-700 rounded-sm" @click="deleteItem(index)"> Delete</button> </td>
+                                            <td>  <button class="btn px-2 py-1 mx-3 my-2 bg-red-700 rounded-full text-white " @click="deleteItem(index)"> Delete</button> </td>
                                         </tr>
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <td colspan="3" class="text-right"> <span>စုစုပေါင်း :</span> {{total}} </td>
+                                            <td colspan="3" class="text-right font-semibold"> <span>စုစုပေါင်း :</span> {{total}} </td>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -133,11 +133,11 @@
                             
                             <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
                               
-                              <button @click="closeModal()" type="button" class=" rounded-md border border-gray-300 p-2 mx-3 my-2 bg-red-600 text-base ">
+                              <button @click="closeModal()" type="button" class=" rounded-full border border-gray-300 px-2 py-1 mx-3 my-2 text-white bg-red-600 text-base ">
                                 Cancel
                               </button>
 
-                              <button class=" btn p-2 m-3 bg-blue-300 rounded-sm" @click="store"> Upload </button>
+                              <button class="rounded-full border border-gray-300 px-2 py-1 mx-3 my-2 text-white bg-blue-600 text-base " @click="store"> Upload </button>
                             </span>
                           </div>
                           

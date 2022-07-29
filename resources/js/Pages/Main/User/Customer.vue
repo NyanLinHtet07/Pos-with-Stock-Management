@@ -3,14 +3,14 @@
          <div>
              <div class=" mt-4 rounded-md shadow-sm text-right w-full ">
                 <form  @submit.prevent="find">
-                    <input type="search" name="" id="" class="rounded text-base font-light font-white-300 border-red-200 border-1 " placeholder="အမည်ရှာရန် ..." v-model="q"> 
-                    <button class="py-1 px-2 mx-2 rounded hover:bg-gray-500 bg-gray-800 text-white" type="submit"> <span><i class="fa fa-search" aria-hidden="true"></i>
+                    <input type="search" name="" id="" class="rounded-xl text-base font-light font-white-300 border-red-200 border-1 " placeholder="အမည်ရှာရန် ..." v-model="q"> 
+                    <button class="py-1 px-2 mx-2 rounded-xl hover:bg-gray-500 bg-gray-800 text-white" type="submit"> <span><i class="fa fa-search" aria-hidden="true"></i>
                     </span> ရှာမယ် </button>
                 </form>
             </div>
 
              <div v-if="! isOpen" class="text-center mt-5">
-                 <button class=" px-3 py-2 rounded bg-green-600 hover:bg-green-800 shadow-sm text-base text-white font-semibold" @click="openBox()"> အချက်အလက်အသစ်ထည့်ရန် </button>
+                 <button class=" px-3 py-2 rounded-full bg-green-600 hover:bg-green-800 shadow-sm text-base text-white font-semibold" @click="openBox()"> အချက်အလက်အသစ်ထည့်ရန် </button>
              </div>
               <div class="rounded text-center w-1/2 bg-white shadow-sm p-3 m-4 mx-auto" v-if="isOpen">
                   <form @submit.prevent = "submit">
@@ -39,13 +39,14 @@
                   </form>
               </div>
 
-                <table class="table-auto mt-10 text-center px-5 w-full bg-white mx-5 shadow-sm">
+                <div class=" w-full">
+                <table class="table-auto mt-10 text-center px-5  bg-white mx-auto w-full shadow-sm">
                  <thead class=" px-4 mb-10 bg-gray-700 text-gray-100 ">
                      <tr>
                         
-                         <td class="w-1/6 ..."> အမည်  </td>
-                         <td class="w-1/6 ..."> အချက်အလက် </td>
-                         <td class="w-1/6"> ကြွေးကျန် </td>
+                         <td class=" py-2 w-2/6"> အမည်  </td>
+                         <td class="py-2 w-2/6"> အချက်အလက် </td>
+                         <td class="py-2 w-2/6"> ကြွေးကျန် </td>
                        
                         
                      </tr>
@@ -55,11 +56,12 @@
                        
                         <td> {{ customer.name }}</td>
                         <td> {{ customer.source}} </td>
-                        <td> <button class="px-3 py-2 rounded bg-blue-400 shadow-sm" @click="customerDebit(customer)"> ကြည့်ရန်</button></td>
+                        <td> <button class="px-3 py-2 rounded-full bg-blue-400 shadow-sm" @click="customerDebit(customer)"> ကြည့်ရန်</button></td>
                        
                      </tr>
                  </tbody>
-             </table>
+                </table>
+                </div>
         
         </div>
 

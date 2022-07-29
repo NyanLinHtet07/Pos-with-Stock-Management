@@ -2,10 +2,10 @@
     <BreezeMainDashLayout>
          <div>
 
-              <div class=" mt-4 rounded-md shadow-sm text-right w-full">
+              <div class=" mt-4 mb-5 rounded-md shadow-sm text-right w-full">
                 <form  @submit.prevent="find">
-                    <input type="search" name="" id="" class="rounded text-base font-light font-white-300 border-red-200 border-1 " placeholder="အမည်ရှာရန် ..." v-model="q"> 
-                    <button class="py-1 px-2 mx-2 rounded hover:bg-gray-500" type="search"> <span><i class="fa fa-search" aria-hidden="true"></i>
+                    <input type="search" name="" id="" class="rounded-full text-base font-light font-white-300 border-red-200 border-1 " placeholder="အမည်ရှာရန် ..." v-model="q"> 
+                    <button class="py-1 px-2 mx-2 rounded-full hover:bg-gray-500" type="search"> <span><i class="fa fa-search" aria-hidden="true"></i>
                     </span> ရှာမယ် </button>
                 </form>
             </div>
@@ -14,20 +14,20 @@
                  <thead class=" bg-gray-700 text-gray-100 ">
                      <tr>
                          <!-- <td class=" w-1/4 ..."> No </td> -->
-                         <td class=""> အမည် </td>
-                         <td class=""> အဆင့် </td>
-                         <td class="">ပြင်ဆင် </td>
-                         <td class=""> ပယ်ဖျက် </td>
+                         <td class="py-2"> အမည် </td>
+                         <td class="py-2"> အဆင့် </td>
+                         <td class="py-2">ပြင်ဆင် </td>
+                         <td class="py-2"> ပယ်ဖျက် </td>
                         
                      </tr>
                  </thead>
                  <tbody>
                      <tr v-for="user in users.data" :key="user.id" class=" border-b-2">
                         <!-- <td> {{ user.id}}</td> -->
-                        <td class=" font-bold text-base"> {{ user.name }}</td>
-                        <td class=" font-semibold text-base text-gray-800"> {{ user.role.name}} </td>
-                        <td> <button class="py-2 px-3 m-2 bg-green-800 rounded text-white" @click="editRole(user)" > <i class="far fa-edit"></i></button> </td>
-                        <td> <button class="py-2 px-3 m-2 bg-red-800 rounded text-white" @click="deleteUser(user.id)"> <i class="far fa-trash-alt"></i> </button></td>
+                        <td class=" font-bold text-base py-1"> {{ user.name }}</td>
+                        <td class=" font-semibold text-base text-gray-800 py-1"> {{ user.role.name}} </td>
+                        <td class="py-1"> <button class="p-2 m-2 bg-green-800 rounded-full text-white" @click="editRole(user)" > <i class="far fa-edit"></i></button> </td>
+                        <td class=" py-1"> <button class="p-2 m-2 bg-red-800 rounded-full text-white" @click="deleteUser(user.id)"> <i class="far fa-trash-alt"></i> </button></td>
                      </tr>
 
                  </tbody>

@@ -112,7 +112,8 @@
             </tbody>
             <tfoot class=" foot">
                 <tr class="p-2 m-2 bg-white">
-                  <td colspan="4" class="font-bold text-black border-gray-700 rounded-b text-right ml-2" > စုစုပေါင်း : {{ totalPrice}}  ကျပ်  </td> 
+                  <td colspan="3" class="font-bold text-black border-gray-700 rounded-b text-right mr-3 py-2" > စုစုပေါင်း :  </td> 
+                  <td colspan="1" class="font-bold text-black border-gray-700 rounded-b text-center mr-3 py-2">{{ totalPrice}}  ကျပ် </td>
                 </tr>
                 <tr>
                   <td colspan="2"> 

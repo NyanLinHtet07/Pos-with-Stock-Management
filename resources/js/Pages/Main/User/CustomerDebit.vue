@@ -1,8 +1,8 @@
 <template>
     <BreezeMainDashLayout>
 
-         <div>
-                    <Link :href="route('customer.index')" class=" bg-blue-300 px-3 py-2 rounded shadow-sm text-gray-800 hover:bg-blue-500"> နောက်သို့</Link>
+         <div class=" mt-5">
+                    <Link :href="route('customer.index')" class=" bg-blue-300 px-3 py-2 rounded-full shadow-sm text-gray-800 hover:bg-blue-500"> နောက်သို့</Link>
                    
                 </div>
          <!-- <div v-for="customerDebit in customerDebits" :key="customerDebit.id">
@@ -18,46 +18,46 @@
          </div> -->
 
          <div v-for="customerDebit in customerDebits.data" :key="customerDebit.id">
-         <div class=" bg-white rounded p-3 mx-3 my-8 shadow-sm">
+         <div class=" bg-white rounded-2xl p-3 mx-3 my-8 shadow-lg">
              <div class="">
                   <!-- <h5 class="font-bold text-base"> ဘောက်ချာအမှတ် ::  {{ customerDebit.order.id }} </h5> -->
                   <span class="text-base font-bold text-gray-800">  {{ moment(customerDebit.created_at).locale("my").format('LLL') }} </span>
                
                   <div class="text-right">
-                      <button class="px-3 py-2 rounded-full bg-red-600 text-white shadow-sm" @click="deleteDebit(customerDebit.id)"> ပယ်ဖျက်ရန် </button>
+                      <button class="px-3 py-2 rounded-full bg-red-600 text-white text-sm shadow-sm" @click="deleteDebit(customerDebit.id)"> ပယ်ဖျက်ရန် </button>
                   </div>
              </div>
             
              <table class="text-center text-sm font-bold w-full mt-3">
                  <thead class=" bg-indigo-600 text-white">
                      <tr>
-                          <td> အမည် </td>
+                          <td class="py-2"> အမည် </td>
                          
-                          <td> ဈေးနှုန်း </td>
-                          <td> အရေအတွက်</td>
-                        <td> ကျသင့်ငွေ</td>
+                          <td class="py-2"> ဈေးနှုန်း </td>
+                          <td class="py-2"> အရေအတွက်</td>
+                        <td class="py-2"> ကျသင့်ငွေ</td>
                      </tr>
                     
                  </thead>
                  <tbody class=" border-b-2">
                      <tr v-for="item in customerDebit.orders" :key="item.id">
-                         <td>  {{ item.name}}  </td>
+                         <td class="py-1">  {{ item.name}}  </td>
                       
-                         <td> {{ item.price}} </td>
-                         <td> {{ item.quantity}} </td>
-                         <td>  {{ item.subtotal}} </td>
+                         <td class="py-1"> {{ item.price}} </td>
+                         <td class="py-1"> {{ item.quantity}} </td>
+                         <td class="py-1">  {{ item.subtotal}} </td>
                      </tr>
                  </tbody>
                  <tfoot>
                      <tr class="border-b-3 text-gray-900">
-                         <td colspan="4" class="text-right ml-10 text-lg"> စုစုပေါင်း : {{ customerDebit.order.total_amt}} </td>
+                         <td colspan="4" class="text-right ml-10 font-semibold py-1"> စုစုပေါင်း : {{ customerDebit.order.total_amt}} </td>
                      </tr>
                      <tr class="bg-gray-300">
-                         <td colspan="4" class="text-right text-gray-800 font-semibold text-lg"> ပေးငွေ : {{customerDebit.cash_amt}}</td>
+                         <td colspan="4" class="text-right text-gray-800 font-semibold py-1"> ပေးငွေ : {{customerDebit.cash_amt}}</td>
                         
                      </tr>
                      <tr class="bg-red-200">
-                          <td colspan="4" class="text-right text-red-700 font-bold text-lg"> ကြွေးကျန်  : {{customerDebit.debit_amt}}</td>
+                          <td colspan="4" class="text-right text-red-700 font-semibold py-1"> ကြွေးကျန်  : {{customerDebit.debit_amt}}</td>
                      </tr>
                  </tfoot>
              </table>

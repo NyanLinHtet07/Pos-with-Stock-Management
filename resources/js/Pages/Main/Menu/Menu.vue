@@ -1,5 +1,5 @@
 <template>
-    <Head title="Menu" />
+    
 
     <BreezeMainDashLayout>
 
@@ -15,7 +15,7 @@
             <div class=" mt-4 rounded-md shadow-sm text-right w-full ">
                 <form  @submit.prevent="find">
                     <input type="search" name="" id="" class="rounded text-base font-light font-white-300 border-red-200 border-1 " placeholder="အမည်ရှာရန် ..." v-model="q"> 
-                    <button class="py-1 px-2 mx-2 rounded hover:bg-gray-500" type="search"> <span><i class="fa fa-search" aria-hidden="true"></i>
+                    <button class="py-1 px-2 mx-2 rounded-full hover:bg-gray-500" type="search"> <span><i class="fa fa-search" aria-hidden="true"></i>
                     </span> ရှာမယ် </button>
                 </form>
             </div>
@@ -30,7 +30,7 @@
 
 
 
-           <div class="p-3 m-4 border-b-2 rounded shadow text-base bg-white ">
+           <div class="p-3 m-4 border-b-2 rounded-xl shadow-lg text-base bg-white ">
                <form @submit.prevent="submit()">
                   
                      <input type="text" class="w-full hover:bg-white-500 border-2 border-red-200 rounded-md font-bold text-gray-800" placeholder="Menu ရေးရန်" v-model="form.name">
@@ -38,7 +38,7 @@
                   
 
                    <div class=" text-center content-center p-3 m-3">
-                       <button type="submit" class=" bg-gray-500 hover:bg-gray-800 text-base text-white font-light py-2 px-4 rounded "> 
+                       <button type="submit" class=" bg-gray-500 hover:bg-gray-800 text-base text-white font-light py-2 px-4 rounded-full "> 
                           Menu အသစ်ထည့်ရန်</button>
                    </div>
                    
@@ -50,33 +50,33 @@
             <table class="table-auto text-center w-full">
             <thead class=" bg-gray-700 text-gray-100">
                 <tr class="p-3 text-base">
-                <th class="w-1/6 ..."> စဉ် </th>
+                <th class=" w-1/5"> စဉ် </th>
                  <!-- <th class="w-1/4 ..."> ရက်စွဲ </th> -->
 
-                <th class="w-1/4 ..."> အမျိုးအမည် </th>
+                <th class="w-1/5 py-1"> အမျိုးအမည် </th>
                
-                <th class="w-1/6 ..."> ပစ္စည်းတင်ရန် </th>
-                <th class="w-1/6 ..."> ပြင်ဆင် </th>
-                <th class="w-1/6 ..."> ပယ်ဖျက် </th>
+                <th class="w-1/5 py-2"> ပစ္စည်းတင်ရန် </th>
+                <th class="w-1/5 py-2"> ပြင်ဆင် </th>
+                <th class="w-1/5 py-2 ..."> ပယ်ဖျက် </th>
                 </tr>
             </thead>
             <tbody class=" bg-white">
-               <tr v-for="menu in menus.data " :key="menu.id">
-                   <td class="py-2"> {{ menu.id}}</td>
+               <tr v-for="(menu,index) in menus.data " :key="menu.id">
+                   <td class="py-2"> {{ index+1}}</td>
                  
                    <td class="py-2"> {{ menu.name}}</td>
                   
                   
                    <!-- <td> <Link :href=" '/main/menu/'+ menu.id"  class=" bg-gray-500 hover:bg-gray-800 text-gray-200 font-bold py-2 px-5 rounded"> View </Link></td> -->
-                   <td class="py-2"> <Link :href="'/main/'+ menu.id +'/item'" class=" bg-gray-500 hover:bg-gray-800 text-gray-200 font-bold py-2 px-2 rounded" > 
+                   <td class="py-2"> <Link :href="'/main/'+ menu.id +'/item'" class=" bg-gray-500 hover:bg-gray-800 text-white font-bold py-2 px-2 rounded-full" > 
                   <i class="fas fa-cloud-upload-alt"></i>
                   </Link> </td>
 
-                   <td class="py-2"> <button @click="editMenu(menu)" class=" bg-green-500 hover:bg-green-800 text-gray-200 font-bold text-sm py-2 px-2 rounded" >
+                   <td class="py-2"> <button @click="editMenu(menu)" class=" bg-green-500 hover:bg-green-800 text-white font-bold text-sm py-2 px-2 rounded-full" >
                     <i class="far fa-edit"></i>
                      </button></td>
 
-                   <td class="py-2"> <button @click="deleteMenu(menu.id)" class="bg-red-500 hover:bg-red-800 text-white font-bold text-sm py-2 px-2 rounded">
+                   <td class="py-2"> <button @click="deleteMenu(menu.id)" class="bg-red-500 hover:bg-red-800 text-white font-bold text-sm py-2 px-2 rounded-full">
                     <i class="far fa-trash-alt"></i>
                     </button></td>
                </tr>
