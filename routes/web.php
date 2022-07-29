@@ -47,6 +47,7 @@ Route::prefix('main') -> middleware('auth','isAccess')-> group(function () {
     // Route::get('/menu/{menu}', [MenuController::class, 'show']) -> name('menu.show');
     Route::put('/menu/edit/{id}',[MenuController::class,'update']);
     Route::delete('menu/{id}', [MenuController::class, 'destroy']);
+    Route::get('menu/export/', [MenuController::class, 'export']) -> name('menu.export');
 
    //for items ...
 
@@ -54,6 +55,7 @@ Route::prefix('main') -> middleware('auth','isAccess')-> group(function () {
    Route::post('/item', [ItemController::class, 'store']);
    Route::put('/item/edit/{id}' , [ItemController::class, 'update']);
    Route::delete('/item/{id}' , [ItemController ::class, 'destroy']);
+   Route::get('/item/export/', [ItemController::class, 'export']) -> name('item.export');
 
    //for User Role 
    Route::get('/users' , [UserController::class, 'index']) -> name('user.index');

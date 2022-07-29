@@ -8,6 +8,9 @@ use Inertia\Inertia;
 use App\Models\Menu;
 use App\Models\Item;
 
+use App\Exports\ItemsExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class ItemController extends Controller
 {
     public function __construct()
@@ -41,6 +44,11 @@ class ItemController extends Controller
             'items' => $items,
             'search' => $request -> get('find')
         ]); 
+    }
+
+    public function export() 
+    {
+        return Excel::download(new ItemsExport, 'items.xlsx');
     }
 
     public function create()

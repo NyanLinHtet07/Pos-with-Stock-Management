@@ -8,6 +8,9 @@ use Inertia\Inertia;
 use App\Models\Menu;
 use App\Models\Item;
 
+use App\Exports\MenusExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class MenuController extends Controller
 {
     public function __construct () {
@@ -27,6 +30,11 @@ class MenuController extends Controller
                  'menus'  => $menus,
                  'search' => $request-> get('find')
         ]);
+    }
+
+    public function export() 
+    {
+        return Excel::download(new MenusExport, 'menus.xlsx');
     }
 
 

@@ -26,6 +26,11 @@
                 </div>
            </div>
 
+        
+              <a :href="route('menu.export')" class=" px-3 py-2 rounded-full bg-indigo-800"> Export Menu</a>
+               <a :href="route('item.export')" class=" px-3 py-2 rounded-full bg-indigo-800"> Export Item</a>
+           
+
             
 
 
@@ -154,6 +159,7 @@ import moment from 'moment';
 import Pagination from '@/Components/Pagination.vue';
 import { computed } from 'vue';
 import { usePage } from '@inertiajs/inertia-vue3';
+import axios from 'axios';
 
 
 
@@ -226,6 +232,10 @@ export default {
             this.closeModal();
         },
 
+        // async exportMenu(){
+        //   await axios.get(`/main/menu/export/`);
+        // },
+
 
 
 
@@ -249,6 +259,7 @@ export default {
     },
 
     },
+
 
     
  
