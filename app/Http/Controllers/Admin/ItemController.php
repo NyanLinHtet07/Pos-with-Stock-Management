@@ -27,15 +27,15 @@ class ItemController extends Controller
       
         $menu = Menu::find($id);
 
-        $items = Item::with('menu')
-                 ->where('menu_id', $id)
-                 -> when($request -> get('find') ?? '' , function($query, $find){
-                        $query -> where('name','like',"%{$find}%")
-                               -> orWhere('code', 'like', "%{$find}%");
-                    
-                        })
-                 ->orderBy('id', 'desc')
-                 -> paginate();
+        $items = Item::where('menu_id', $id)
+        ->with('menu')
+        -> when($request -> get('find') ?? '' , function($query, $find){
+               $query -> where('name','like',"%{$find}%");
+                     // -> orWhere('code', 'like', "%{$find}%");
+           
+               })
+        ->orderBy('id', 'desc')
+        -> paginate();
     
        
 

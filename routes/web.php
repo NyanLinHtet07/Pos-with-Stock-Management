@@ -48,6 +48,7 @@ Route::prefix('main') -> middleware('auth','isAccess')-> group(function () {
     Route::put('/menu/edit/{id}',[MenuController::class,'update']);
     Route::delete('menu/{id}', [MenuController::class, 'destroy']);
     Route::get('menu/export/', [MenuController::class, 'export']) -> name('menu.export');
+    Route::post('menu/import/', [MenuController::class, 'import']) -> name('menu.import');
 
    //for items ...
 

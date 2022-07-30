@@ -9,6 +9,8 @@ use App\Models\Menu;
 use App\Models\Item;
 
 use App\Exports\MenusExport;
+use App\Imports\MenusImport;
+
 use Maatwebsite\Excel\Facades\Excel;
 
 class MenuController extends Controller
@@ -35,6 +37,13 @@ class MenuController extends Controller
     public function export() 
     {
         return Excel::download(new MenusExport, 'menus.xlsx');
+    }
+
+    public function import(Request $request)
+    {
+        Excel::import(new MenusImport, request()->file('file'));
+        
+        return redirect()->route('menu.index')->with('success');
     }
 
 

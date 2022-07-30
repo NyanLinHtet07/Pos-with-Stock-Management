@@ -27,9 +27,19 @@
            </div>
 
         
-              <a :href="route('menu.export')" class=" px-3 py-2 rounded-full bg-indigo-800"> Export Menu</a>
-               <a :href="route('item.export')" class=" px-3 py-2 rounded-full bg-indigo-800"> Export Item</a>
-           
+          <div class=" flex justify-start my-3">
+               <a :href="route('menu.export')" class=" px-3 py-2 rounded-full bg-indigo-800 text-white mx-2"> Export Menu</a>
+               <a :href="route('item.export')" class=" px-3 py-2 rounded-full bg-yellow-800 text-white mx-2"> Export Item</a>
+              <form @submit.prevent="uploadExcel()" class=" px-3 py-1 rounded-full bg-blue-200">
+               
+                  <label for="file">Upload Excel</label>
+                    <input type="file" @input="formex.file= $event.target.files [0]" class="rounded-lg p-2"/>
+               
+                 
+                   <button class=" px-3 py-2 rounded-full shadow-lg" type="submit"> Submit</button>
+              </form>
+          </div>
+             
 
             
 
@@ -193,6 +203,10 @@ export default {
                 name: null ,
             },
 
+            formex:{
+              file:null,
+            },
+
             q: this.search
            
         }
@@ -230,6 +244,10 @@ export default {
             this.$inertia.put(`/main/menu/edit/` + menu.id , menu);
             this.reset();
             this.closeModal();
+        },
+
+        uploadExcel(){
+            this.$inertia.post(`/main/menu/import`, this.formex)
         },
 
         // async exportMenu(){
